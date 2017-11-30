@@ -11,6 +11,6 @@ export default Ember.Route.extend(AuthRoute,{
         console.log("no puedes entrar aquì");
         return this.transitionTo("perfil");
       }
-    })
+    });
   }
 });

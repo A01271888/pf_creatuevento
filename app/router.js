@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('login');//, {path: '/'});
   this.route('crearcuenta');
   this.route('perfil');
+  this.route('lista-eventos');
+  this.route('crearEvento');
 });
 
 export default Router;

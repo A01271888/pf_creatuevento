@@ -1,0 +1,54 @@
+{{menu-cliente estadoI="" estadoE="active" deCerrarSesion=(action 'cerrarSesion')}}
+
+<div class="ui segment">
+  <h2>Lsita de eventos</h2>
+  {{#link-to 'crearEvento'}}
+    <a class="btn-floating btn-large waves-effect waves-light red" ><i class="plus icon"></i></a>
+  {{/link-to}}
+  <div class="ui divided items">
+    <div class="item">
+     <div class="image">
+       <img src="https://firebasestorage.googleapis.com/v0/b/crea-tu-evento.appspot.com/o/default%2Fdefault-placeholder.png?alt=media&token=b7b68d7f-4cd1-44fd-95ea-700cd5f1adbf">
+     </div>
+     <div class="content">
+       <a class="header">Nombre: </a>
+       <div class="meta">
+         <span class="cinema">IFC</span>
+       </div>
+       <div class="description">
+         <p>rgthgtrythdctgcdfgxrse</p>
+       </div>
+       <div class="extra">
+         <div class="ui right floated primary button">
+           Detalles
+           <i class="right chevron icon"></i>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="item">
+    <div class="image">
+      <img src="https://firebasestorage.googleapis.com/v0/b/crea-tu-evento.appspot.com/o/default%2Fdefault-placeholder.png?alt=media&token=b7b68d7f-4cd1-44fd-95ea-700cd5f1adbf">
+    </div>
+    <div class="content">
+      <a class="header">Nombre: </a>
+      <div class="meta">
+        <span class="cinema">IFC</span>
+      </div>
+      <div class="description">
+        <p>rgthgtrythdctgcdfgxrse</p>
+      </div>
+      <div class="extra">
+        <div class="ui right floated primary button">
+          Detalles
+          <i class="right chevron icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- {{#each model.registro-evento as |item|}}
+       {{item-evento evento=item}}
+    {{/each}} -->
+  </div>
+</div>

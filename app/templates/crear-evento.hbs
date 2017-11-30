@@ -1,0 +1,25 @@
+<div class="card-panel">
+  <div class="container">
+    <h1 class="ui horizontal divider header transparent">
+      <!-- <i class="tag icon"></i> -->
+      Datos generales del evento
+    </h1>
+    <p class="green-text" style="text-align: center;">Ingresa los datos de tu evento</p>
+    {{form-registro-evento evento=model}}
+  </div>
+  <div class="container">
+    <h1 class="ui horizontal divider header transparent">
+      <!-- <i class="tag icon"></i> -->
+      Detalles del Evento
+    </h1>
+    <p>Ingresa los datos de tu evento</p>
+  </div>
+  <div class="container">
+    <h1 class="ui horizontal divider header transparent">
+      <!-- <i class="tag icon"></i> -->
+      Confirma
+    </h1>
+    <p>Ingresa los datos de tu evento</p>
+    <button type="button" name="button"{{action 'save'}}>Guardar</button>
+  </div>
+</div>
