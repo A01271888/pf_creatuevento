@@ -12,14 +12,24 @@
   </div>
 </div>
 <div class="ui segment">
-    <h1>Bienvenid@ a tu perfil</h1>
+    <div class="row">
+      <div class="col s6">
+        <h1> Bienvenid@ a tu perfil</h1>
+      </div>
+      {{#if editable}}
+      {{else}}
+        <div class="col s6">
+          <a class="btn-floating btn-large waves-effect waves-light green" {{action 'editable'}}><i class="material-icons">create</i></a>
+        </div>
+      {{/if}}
+    </div>
     <div class="row">
 
       <div class="col s3">
         {{#if editable}}   <!--initialImg=model.picUrl didChange=(action 'changePicUrl')}}-->
-          {{profile-pic-picker initialImg=model.picUrl didChange=(action 'changePicUrl')}}
+          {{profile-pic-picker initialImg=model.picProfile didChange=(action 'changePicUrl')}}
         {{else}}
-          {{profile-pic}}
+          {{profile-pic Img=model.picProfile}}
         {{/if}}
       </div>
 
@@ -46,9 +56,11 @@
             {{input id="mail" value=model.mail}}
           </div>
         </div>
-        <div class="row">
-
+        {{#if editable}}
+        <div class="row" style="text-align: center;">
+          <a class="waves-effect waves-light btn-large" {{action 'save'}}>Guardar cambios</a>
         </div>
+        {{/if}}
       </div>
 
     </div>

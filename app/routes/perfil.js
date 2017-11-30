@@ -8,5 +8,13 @@ export default Ember.Route.extend(AuthRoute, {
     let id = this.get('session.uid');
     // debugger
     return this.store.find('usuario', id);
-  }
+  },
+  beforeModel(){
+  return this.get("session").fetch().catch(()=>{
+    if(!this.get('session.isAuthenticated')){
+      return this.transitionTo('login');
+      //return this.transitionTo("perfil");
+    }
+  });
+}
 });

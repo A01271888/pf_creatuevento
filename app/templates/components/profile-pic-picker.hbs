@@ -1,3 +1,21 @@
 
-<img id="preview" height="200" width="200" src={{initialImg}}/>
-{{input type="file" change=(action 'previewPic')}}
+<div class="ui fluid card">
+  <!-- <div class="content">
+    <a class="header">Daniel Louise</a>
+  </div> -->
+  <div class="image">
+    <img id="preview" height="200" width="200" src={{initialImg}}/>
+  </div>
+</div>
+
+<form action="#">
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      {{input type="file" change=(action 'previewPic')}}
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+</form>
