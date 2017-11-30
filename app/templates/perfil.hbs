@@ -1,0 +1,55 @@
+<div class="ui secondary pointing menu">
+  <a class="active item">
+    Inicio
+  </a>
+  <a class="item">
+    Eventos
+  </a>
+  <div class="right menu">
+    <a class="ui item" {{action 'cerrarSesion'}}>
+      Cerrar Sesión
+    </a>
+  </div>
+</div>
+<div class="ui segment">
+    <h1>Bienvenid@ a tu perfil</h1>
+    <div class="row">
+
+      <div class="col s3">
+        {{#if editable}}   <!--initialImg=model.picUrl didChange=(action 'changePicUrl')}}-->
+          {{profile-pic-picker initialImg=model.picUrl didChange=(action 'changePicUrl')}}
+        {{else}}
+          {{profile-pic}}
+        {{/if}}
+      </div>
+
+      <div class="col s9">
+        <h2>Datos</h2>
+        <div class="row">
+          <div class="col s6">
+            <label for="nombre">Nombre(s)</label>
+            {{input id="nombre" value=model.nombre}}
+          </div>
+          <div class="col s6">
+            <label for="apell">Apellidos</label>
+            {{input id="apell" value=model.apellidos}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <!-- <i class="material-icons prefix">phone</i> -->
+            <label for="tel">Teléfono</label>
+            {{input id="tel" value=model.telefono}}
+          </div>
+          <div class="col s6">
+            <label for="mail">Correo Electrónico</label>
+            {{input id="mail" value=model.mail}}
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
+      </div>
+
+    </div>
+</div>
