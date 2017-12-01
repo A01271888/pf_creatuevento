@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthRoute, {
   model(){
     let evento = this.get('store').createRecord('registro-evento', {
       //nombre: "Fiesta",
-      titularEvento: this.get('usuario')
+      usuario: this.get('usuario')
     });
     return evento;
   },
