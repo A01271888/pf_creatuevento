@@ -58,7 +58,14 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.firebase = {
+    apiKey: "AIzaSyAYW1klxbDLk5mYVs5KNEXAoEDlv8CZJQE",
+    authDomain: "crea-tu-evento.firebaseapp.com",
+    databaseURL: "https://crea-tu-evento.firebaseio.com",
+    projectId: "crea-tu-evento",
+    storageBucket: "crea-tu-evento.appspot.com",
+    messagingSenderId: "544493886951"
+  }
   }
 
   return ENV;

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   estadoE: "",
   actions: {
       clickCerrarSesion(){
-        this.sendAction('deCerrarSesion');
+        this.sendAction('doCerrarSesion');
       }
   }
 });

@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
+  showError(message){
+    this.set('errorMsg', message);
+    setTimeout(()=>{ this.set('errorMsg', null) }, 5000); // 1000 == 1 seg
+  },
   actions: {
     irCrearCuenta(){
       this.transitionToRoute('crearcuenta');
@@ -10,18 +14,22 @@ export default Ember.Controller.extend({
         //Còdigo para inicio de sesiòn
         switch (provider) {
           case 'email':
-            let email = this.get('email');
+            let mail = this.get('email');
             let pass = this.get('password');
 
             this.get('session').open('firebase', {
               provider: 'password',
-              email: email,
+              email: mail,
               password: pass
             }).then(()=>{
               //console.log(email);
+              this.set('email', "");
+              this.set('password', "");
               return this.transitionToRoute('perfil');
             }).catch((error)=>{
-              console.log(error);
+              this.showError(error.message);
+              this.set('email', "");
+              this.set('password', "");
             })
             break;
 

@@ -44,7 +44,13 @@
       </div>
 
       {{#if errorMsg}}
-        <p>{{errorMsg}}</p>
+        <div class="ui negative message">
+          <i class="close icon"></i>
+          <div class="header">
+          Error :c
+          </div>
+          <p>{{errorMsg}}</p>
+        </div>
       {{/if}}
 
       <p>

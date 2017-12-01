@@ -1,4 +1,4 @@
-{{menu-cliente estadoI="active" estadoE="" deCerrarSesion=(action 'cerrarSesion')}}
+{{menu-cliente estadoI="active" estadoE="" doCerrarSesion=(action 'cerrarSesion')}}
 
 <div class="ui segment">
     <div class="row">
@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col s6">
             <label for="nombre">Nombre(s)</label>
-            {{input id="nombre" value=model.nombre}}
+            {{input id="nombre" disable=true value=model.nombre}}
           </div>
           <div class="col s6">
             <label for="apell">Apellidos</label>

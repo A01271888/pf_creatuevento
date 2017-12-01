@@ -6,12 +6,12 @@ export default DS.Model.extend({
   horaInicio: DS.attr(), //verificar tipo de dato
 
   //Posibles modelos
-  estado: DS.attr('string'),
+  estado: DS.attr('string', {defaultValue: 'tentativo'}),
   tipoEvento: DS.attr('string'),
 
   //quienGenero: DS.attr('string'),  //hacer un match
 
-  titularEvento: DS.belongsTo('cliente'),
-  detalleEvento: DS.belongsTo('detalle-evento'),
-  salon: DS.belongsTo('salon')
+  // titularEvento: DS.belongsTo('cliente'),
+  // detalleEvento: DS.belongsTo('detalle-evento'),
+  // salon: DS.belongsTo('salon')
 });
