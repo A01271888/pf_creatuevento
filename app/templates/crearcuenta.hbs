@@ -1,13 +1,14 @@
 
 <div class="container">
 
-  <div class="">
-    <h2 class=""><i class="circular user icon"></i>  Registraste</h2>
-    <br>
-  </div>
-
   <div class="row">
-    <form class="col s12" {{action 'signup' on='submit'}}>
+
+    <!-- <div class=""> -->
+      <h2 class=""><i class="circular user icon"></i>  Crea tu cruenta</h2>
+      <br>
+    <!-- </div> -->
+
+    <form class="col s8" {{action 'signup' on='submit'}}>
       <div class="row">
         <div class="input-field col s6">
           {{input id="first_name" type="text" class="validate" value=nombre}}
@@ -44,20 +45,51 @@
       </div>
 
       {{#if errorMsg}}
-        <div class="ui negative message">
-          <i class="close icon"></i>
-          <div class="header">
-          Error :c
+        <div class="row">
+          <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header">
+            Error :c
+            </div>
+            <p>{{errorMsg}}</p>
           </div>
-          <p>{{errorMsg}}</p>
         </div>
       {{/if}}
 
-      <p>
-        <button class="ui secondary basic button">Crear cuenta</button>
-      </p>
-
-
+      <center>
+          <button class="ui secondary basic button">Crear cuenta</button>
+      </center>
     </form>
+
+    <div class="col s4">
+      <div class="container">
+        <center>
+          <div class="row">
+              <h4>Registrate con </h4>
+          </div>
+          <div class="row">
+            <button class="ui facebook button" {{action 'signupWithProvider' 'facebook'}}>
+              <i class="facebook icon"></i>
+              Facebook
+            </button>
+          </div>
+          <div class="row">
+            <button class="ui twitter button">
+              <i class="twitter icon"></i>
+              Twitter
+            </button>
+          </div>
+          <div class="row">
+            <button class="ui google plus button" {{action 'signupWithProvider' 'google'}}>
+              <i class="google plus icon"></i>
+              Google
+            </button>
+          </div>
+        </center>
+      </div>
+    </div>
+
   </div>
+
+
 </div>

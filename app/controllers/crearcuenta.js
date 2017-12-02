@@ -58,6 +58,28 @@ export default Ember.Controller.extend({
         this.showError("Password and confirmation don't match");
       }
     },
+    signupWithProvider(provider){
+    let promise;
+    switch (provider) {
+      case 'facebook':
+        promise = this.get('session').open('firebase', {provider: 'facebook'});
+        break;
+      case 'google':
+        promise = this.get('session').open('firebase', {provider: 'google'});
+        break;
+    }
+    promise.then((payload)=>{
+      return this.store.createRecord('usuario', {
+        nombre: payload.currentUser.displayName,
+        id: payload.uid
+      }).save();
+    }).then(()=>{ return this.transitionToRoute('perfil') });
+
+    promise.catch((error)=>{
+      console.log(error);
+    });
+
+  },
 
   }
 });

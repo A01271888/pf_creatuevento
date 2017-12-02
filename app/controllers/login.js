@@ -32,7 +32,30 @@ export default Ember.Controller.extend({
               this.set('password', "");
             })
             break;
+          case 'google':
+            this.get('google').open('firebase', {provider: 'google'}).then(()=>{
+              if(this.get('session.isAuthenticated')){
+                return this.transitionToRoute("perfil");
+              }else{
+                return this.transitionToRoute("login");
+              }
+            });
+            break;
 
+          case 'facebook':
+            this.get('session').open('firebase',{provider: 'facebook'}).then(()=>{
+              // el inicio funcionó
+              if(this.get('session.isAuthenticated')){
+                return this.transitionToRoute("lista-eventos");
+              }else{
+                return this.transitionToRoute("login");
+              }
+              // debugger
+            }).catch(()=>{
+              // Falló el inicio
+              // debugger
+            });
+            break;
         }
     },
   },
