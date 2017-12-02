@@ -5,9 +5,9 @@ export default Ember.Route.extend(AuthRoute, {
   session: Ember.inject.service(),
   model(){
     let id = this.get('session.uid');
-    console.log(id);
+    console.log("Id session", id);
     let u = this.store.find('usuario', id);
-    console.log(u);
+    console.log("usuario", u);
     let evento = this.get('store').createRecord('registro-evento', {
       //nombre: "Fiesta",
       usuario: u,

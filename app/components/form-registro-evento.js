@@ -12,6 +12,11 @@ export default Ember.Component.extend({
       // let id = this.get('session.uid');
       // this.set('registroEvento.nombre', id);
       // console.log(id);
+      let dE = this.get('store').createRecord('detalleEvento', {
+        registroEvento: this.get('registroEvento')
+      });
+      dE.save();
+      console.log(dE.id);
 
       registroEvento.save().then(()=>{
         window.swal({
@@ -31,11 +36,7 @@ export default Ember.Component.extend({
               type: 'success'
           }).then(()=>{
             // this.get('registroEvento').this.get('detalleEvento').createRecord();
-            let dE = this.get('store').createRecord('detalle-evento', {
-              registroEvento: this.get('registro-evento')
-            }).save();
 
-            console.log(dE);
             this.sendAction('Paso1');
             this.set('Paso2', true);
             this.set('Paso1', false);
@@ -45,7 +46,6 @@ export default Ember.Component.extend({
           console.log("No se que pasó):");
         });
       });
-
     },
     selectTipo(value ){
       let registroEvento = this.get('registroEvento');
@@ -54,7 +54,7 @@ export default Ember.Component.extend({
     guardaDetalles(){
       let registroEvento = this.get('registroEvento');
       registroEvento.save().then(()=>{
-        Ember.RSVP.all(  registroEvento.get('detalleEvento').invoke('save')  ).then(()=>{
+        Ember.RSVP.all(  registroEvento.get('detalleEvento').save()  ).then(()=>{
           alert('Ya se guardo');
         });
       });
