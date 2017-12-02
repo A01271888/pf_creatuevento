@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col s4">
       <label for="nombre">Total Personas</label>
-        {{input id="nombre" type="text" value=registroEvento.nombre}}
-      </div>
+      {{input id="nombre" type="text" value=registroEvento.nombre}}
+    </div>
   </div>
   <div class="row">
     <div class="col s6">
@@ -15,18 +15,6 @@
       <label for="hr">Hora de Inicio</label>
       <!-- <input id="hr" type="text" class="timepicker"> -->
       {{input id="hr" type="time" value=registroEvento.horaInicio}}
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="input-field col s12">
-      <select onchange={{action "selectTipo" value="target.value"}}>
-        <option value="" disabled selected>Selecciona el tipo de evento</option>
-        <option value="Peda">Peda</option>
-        <option value="Peda 2">Peda 2</option>
-        <option value="Peda 3">Peda 3</option>
-      </select>
-      <label>Tipo de evento</label>
     </div>
   </div>
 

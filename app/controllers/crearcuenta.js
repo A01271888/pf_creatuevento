@@ -72,7 +72,19 @@ export default Ember.Controller.extend({
       return this.store.createRecord('usuario', {
         nombre: payload.currentUser.displayName,
         id: payload.uid
-      }).save();
+      }).save().then(()=>{
+        console.log(email);
+         window.swal({
+           title: 'Listo!',
+           text: 'Te registraste correctamente, ya puedes comenzar a crear eventos.',
+           confirmButtonText: 'OK',
+           type: 'success'
+         }).then(()=>{
+           this.transitionToRoute('perfil');//, { queryParams: { cliente_id: id }});
+         }).catch((error)=>{
+           console.log(error);
+         })
+      });
     }).then(()=>{ return this.transitionToRoute('perfil') });
 
     promise.catch((error)=>{
