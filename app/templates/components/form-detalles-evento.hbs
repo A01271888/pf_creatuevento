@@ -1,27 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col s4">
-      <label for="TP">Total Personas</label>
-      {{input id="TP" type="text" value=detalleEvento.totalPersonas}}
+      <label for="TP">{{Total Personas}}</label>
+      {{input id="TP" type="number" value=detalleEvento.totalPersonas}}
     </div>
   </div>
   <div class="row">
     <div class="col s6">
-      <label for="fecha">Fecha</label>
+      <label for="NM">Número de Mesas</label>
       <!-- <input id="fecha" type="text" class="datepicker"> -->
-      {{input id="text" type="text" value=registroEvento.noMesas}}
+      {{input id="NM" type="number" value=detalleEvento.noMesas}}
     </div>
     <div class="col s6">
-      <label for="hr">Hora de Inicio</label>
+      <label for="NS">Número de Sillas</label>
       <!-- <input id="hr" type="text" class="timepicker"> -->
-      {{input id="text" type="text" value=registroEvento.noSillas}}
+      {{input id="NS" type="number" value=detalleEvento.noSillas}}
     </div>
-  </div>
-
-  <div class="row">
-    <button class="ui right labeled icon button" {{action 'registraEvento' }}>
-      <i class="right arrow icon"></i>
-      Siguente Paso
-    </button>
   </div>
 </div>

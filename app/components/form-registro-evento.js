@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service('store'),
   session: Ember.inject.service(),
-  Paso1: false,
+  Paso1: true,
+  Paso2: false,
   actions: {
     registraEvento(){
       let registroEvento = this.get('registroEvento');
@@ -29,10 +30,12 @@ export default Ember.Component.extend({
               confirmButtonText: 'Ok',
               type: 'success'
           }).then(()=>{
-            let detalles = this.get('store').createRecord('detalle-evento', {
+            this.get('store').createRecord('detalle-evento', {
               registroEvento: this.get('registro-evento')
             });
             this.sendAction('Paso1');
+            this.set('Paso2', true);
+            this.set('Paso1', false);
             //this.set('titularEvento', detalles.id)
           });
         }).catch(()=>{
@@ -43,6 +46,14 @@ export default Ember.Component.extend({
     selectTipo(value ){
       let registroEvento = this.get('registroEvento');
       this.set('registroEvento.tipoEvento', value);
+    },
+    guardaDetalles(){
+      let registroEvento = this.get('registroEvento');
+      registroEvento.save().then(()=>{
+        Ember.RSVP.all(  registroEvento.get('detalleEvento').invoke('save')  ).then(()=>{
+          alert('Ya se guardo');
+        });
+      });
     }
   }
 });

@@ -12,5 +12,5 @@ export default Ember.Route.extend(AuthRoute,{
         return this.transitionTo("perfil");
       }
     });
-  }
+  },
 });

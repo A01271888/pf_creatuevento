@@ -39,6 +39,10 @@ export default Ember.Controller.extend({
               }else{
                 return this.transitionToRoute("login");
               }
+            }).catch((error)=>{
+              this.showError(error.message);
+              this.set('email', "");
+              this.set('password', "");
             });
             break;
 
@@ -46,15 +50,15 @@ export default Ember.Controller.extend({
             this.get('session').open('firebase',{provider: 'facebook'}).then(()=>{
               // el inicio funcionó
               if(this.get('session.isAuthenticated')){
-                return this.transitionToRoute("lista-eventos");
+                return this.transitionToRoute("perfil");
               }else{
                 return this.transitionToRoute("login");
               }
-              // debugger
-            }).catch(()=>{
-              // Falló el inicio
-              // debugger
-            });
+            }).catch((error)=>{
+              this.showError(error.message);
+              this.set('email', "");
+              this.set('password', "");
+            })
             break;
         }
     },

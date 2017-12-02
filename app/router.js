@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('perfil');
   this.route('lista-eventos');
   this.route('crearEvento');
+  this.route('perfilAdmin');
 });
 
 export default Router;

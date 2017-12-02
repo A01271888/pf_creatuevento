@@ -1,3 +1,4 @@
+{{#if true}}
 <div class="container">
   <div class="row">
     <div class="col s12">
@@ -35,12 +36,48 @@
   </div>
 
   <div class="row">
-    <button class="ui right labeled icon button" {{action 'registraEvento' }}>
+    <button class="ui right labeled icon button" {{action 'registraEvento'}}>
       <i class="right arrow icon"></i>
       Siguente Paso
     </button>
   </div>
 </div>
+{{/if}}
+
+{{#if Paso2}}
+<div class="container">
+  <div class="row">
+    <h1 class="ui horizontal divider header transparent">
+      <!-- <i class="tag icon"></i> -->
+      Detalles del Evento
+    </h1>
+    <p class="green-text" style="text-align: center;">Ingresa los detalles de tu evento</p>
+    {{#each model.detalleEvento as |detalleEvento|}}
+    <p>{{detalleEvento.id}}</p>
+      {{form-detalles-evento detalleEvento=detalleEvento}}
+    {{/each}}
+  </div>
+  <div class="row">
+    <button class="ui right labeled icon button" {{action 'guardaDetalles'}}>
+      <i class="right arrow icon"></i>
+      Siguente Paso
+    </button>
+  </div>
+</div>
+{{/if}}
+
+{{#if Paso3}}
+<div class="container">
+  <h1 class="ui horizontal divider header transparent">
+    <!-- <i class="tag icon"></i> -->
+    Confirma
+  </h1>
+  <p class="green-text" style="text-align: center;">Escoge tu forma de pago y confirma</p>
+  {{form-comfirm}}
+  <button type="button" name="button"{{action 'save'}}>Guardar</button>
+</div>
+{{/if}}
+
 
 
 <script type="text/javascript">
