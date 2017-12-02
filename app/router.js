@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('lista-eventos');
   this.route('crearEvento');
   this.route('perfilAdmin');
+  this.route('inicio', {path: '/:salon_id'});
 });
 
 export default Router;

@@ -4,9 +4,13 @@ import AuthRoute from '../mixins/authenticated';
 export default Ember.Route.extend(AuthRoute, {
   session: Ember.inject.service(),
   model(){
+    let id = this.get('session.uid');
+    console.log(id);
+    let u = this.store.find('usuario', id);
+    console.log(u);
     let evento = this.get('store').createRecord('registro-evento', {
       //nombre: "Fiesta",
-      usuario: this.get('usuario')
+      usuario: u,
     });
     return evento;
   },

@@ -52,9 +52,11 @@
       Detalles del Evento
     </h1>
     <p class="green-text" style="text-align: center;">Ingresa los detalles de tu evento</p>
-    {{#each model.detalleEvento as |detalleEvento|}}
-    <p>{{detalleEvento.id}}</p>
-      {{form-detalles-evento detalleEvento=detalleEvento}}
+  </div>
+  <div class="row">
+    {{#each registroEvento as |rE|}}
+    <p>{{detalles.id}}</p>
+      {{form-detalles-evento detalleEvento=rE.registroEvento}}
     {{/each}}
   </div>
   <div class="row">

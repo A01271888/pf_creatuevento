@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     registraEvento(){
       let registroEvento = this.get('registroEvento');
 
-      let id = this.get('session.uid');
+      // let id = this.get('session.uid');
       // this.set('registroEvento.nombre', id);
       // console.log(id);
 
@@ -30,9 +30,12 @@ export default Ember.Component.extend({
               confirmButtonText: 'Ok',
               type: 'success'
           }).then(()=>{
-            this.get('store').createRecord('detalle-evento', {
+            // this.get('registroEvento').this.get('detalleEvento').createRecord();
+            let dE = this.get('store').createRecord('detalle-evento', {
               registroEvento: this.get('registro-evento')
-            });
+            }).save();
+
+            console.log(dE);
             this.sendAction('Paso1');
             this.set('Paso2', true);
             this.set('Paso1', false);
@@ -42,6 +45,7 @@ export default Ember.Component.extend({
           console.log("No se que pasó):");
         });
       });
+
     },
     selectTipo(value ){
       let registroEvento = this.get('registroEvento');
