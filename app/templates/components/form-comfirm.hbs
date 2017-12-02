@@ -1,1 +1,27 @@
-{{yield}}
+<div class="container">
+  <div class="row">
+    <div class="col s4">
+      <label for="nombre">Total Personas</label>
+      {{input id="nombre" type="text" value=registroEvento.nombre}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <label for="fecha">Fecha</label>
+      <!-- <input id="fecha" type="text" class="datepicker"> -->
+      {{input id="fecha" type="date" value=registroEvento.fecha}}
+    </div>
+    <div class="col s6">
+      <label for="hr">Hora de Inicio</label>
+      <!-- <input id="hr" type="text" class="timepicker"> -->
+      {{input id="hr" type="time" value=registroEvento.horaInicio}}
+    </div>
+  </div>
+
+  <div class="row">
+    <button class="ui right labeled icon button" {{action 'registraEvento' }}>
+      <i class="right arrow icon"></i>
+      Siguente Paso
+    </button>
+  </div>
+</div>

@@ -2,8 +2,8 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
     totalPersonas: DS.attr('number'),
-    // noMesas: DS.attr('number'),
-    // noSillas: DS.attr('number'),
+    noMesas: DS.attr('number'),
+    noSillas: DS.attr('number'),
     // colorManteles: DS.attr('string'),
     // meseros: DS.attr('boolean'),
     // noMeseros: DS.attr('number'),

@@ -1,11 +1,15 @@
-<div class="container">
-  <h1 class="ui horizontal divider header transparent">
-    <!-- <i class="tag icon"></i> -->
-    Datos generales del evento
-  </h1>
-  <p class="green-text" style="text-align: center;">Ingresa los datos de tu evento</p>
-  {{form-registro-evento registroEvento=model}}
-</div>
+{{#if Paso1}}
+  <div class="container">
+    <h1 class="ui horizontal divider header transparent">
+      <!-- <i class="tag icon"></i> -->
+      Datos generales del evento
+    </h1>
+    <p class="green-text" style="text-align: center;">Ingresa los datos de tu evento</p>
+    {{form-registro-evento registroEvento=model Paso1=(action 'listoPaso1')}}
+  </div>
+{{/if}}
+
+{{#if Paso2}}
 <div class="container">
   <h1 class="ui horizontal divider header transparent">
     <!-- <i class="tag icon"></i> -->
@@ -14,11 +18,16 @@
   <p class="green-text" style="text-align: center;">Ingresa los detalles de tu evento</p>
   {{form-detalles-evento }}
 </div>
+{{/if}}
+
+{{#if Paso3}}
 <div class="container">
   <h1 class="ui horizontal divider header transparent">
     <!-- <i class="tag icon"></i> -->
     Confirma
   </h1>
   <p class="green-text" style="text-align: center;">Escoge tu forma de pago y confirma</p>
+  {{form-comfirm}}
   <button type="button" name="button"{{action 'save'}}>Guardar</button>
 </div>
+{{/if}}

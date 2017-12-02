@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service('store'),
   session: Ember.inject.service(),
+  Paso1: false,
   actions: {
     registraEvento(){
       let registroEvento = this.get('registroEvento');
@@ -31,6 +32,7 @@ export default Ember.Component.extend({
             let detalles = this.get('store').createRecord('detalle-evento', {
               registroEvento: this.get('registro-evento')
             });
+            this.sendAction('Paso1');
             //this.set('titularEvento', detalles.id)
           });
         }).catch(()=>{
