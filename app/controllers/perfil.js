@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  editable: false,
+  NoEditable: true,
   actions: {
     cerrarSesion(){
       return this.get("session").close().then(()=>{
@@ -10,14 +10,14 @@ export default Ember.Controller.extend({
     },
     save(){
       this.get('model').save();
-      this.set('editable', false);
+      this.set('NoEditable', true);
     },
     changePicUrl(url){
       console.log(url);
       this.set('model.picProfile', url);
     },
     editable(){
-      this.set('editable', true);
+      this.set('NoEditable', false);
     }
   }
 });

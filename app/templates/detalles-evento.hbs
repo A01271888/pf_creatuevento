@@ -1,0 +1,47 @@
+{{menu-cliente estadoI="" estadoE="active" doCerrarSesion=(action 'cerrarSesion')}}
+<br>
+
+<div class="container">
+
+  <div class="ui horizontal divider transparent">
+    Evento
+  </div> <br>
+  <div class="row">
+    <div class="col s3">
+      {{profile-pic Img=model.picEvento}}
+    </div>
+    <div class="col s1">
+      <!-- <div class="image">
+        <img src="https://s3.amazonaws.com/piktochartv2-dev/v2/uploads/81ecd723-4957-46d6-993e-ac6d6bdc0226/22fb8c76ea83f8909788d0e259f011b110c24833_original.png">
+      </div> -->
+    </div>
+
+    <div class="col s8">
+      <!-- <div class="row"> -->
+        <div class="row">
+          <h3>
+            {{model.nombre}}
+            <div class="ui label"><i class="info circle icon"></i>{{model.estado}}</div>
+          </h3>
+        </div>
+        <div class="row">
+          {{#link-to perfil}}
+            <h5>*aqui va el nombre del salon* </h5>
+          {{/link-to}}
+        </div>
+        <div class="row">
+          <h5><i class="calendar icon"></i>{{model.fecha}}</h5>
+        </div>
+        <div class="row">
+          <h5><i class="wait icon"></i>{{model.horaInicio}}</h5>
+        </div>
+      <!-- </div> -->
+    </div>
+
+  </div>
+  <div class="ui horizontal divider transparent">
+    Detalles del evento
+  </div>
+
+  {{evento-detalles devento=model.detalleEvento}}
+</div>

@@ -1,0 +1,43 @@
+<br>
+<div class="row">
+  <div class="col s6" style="text-align: center;">
+      <h5>Asistentes</h5>
+      <h5><i class="users icon"></i>{{devento.totalPersonas}}</h5>
+  </div>
+  <div class="col s6">
+    <div class="ui labeled input">
+      <label for="amount" class="ui label">$</label>
+      <input type="text" placeholder="Amount" id="amount">
+      <div class="ui basic label">.00</div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6" style="text-align: center;">
+      <h5>Mesas</h5>
+      <h5>
+        <img src="https://image.flaticon.com/icons/png/512/1/1329.png" height="30" width="30">
+        {{devento.noMesas}}
+      </h5>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Selecciona el salon</option>
+      {{#each salones as |salon|}}
+       <option value="Cumpleaños">Cumpleaños</option>
+      {{/each}}
+    </select>
+    <label>Tipo de evento</label>
+  </div>
+</div> -->
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+</script>

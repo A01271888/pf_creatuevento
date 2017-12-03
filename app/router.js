@@ -14,6 +14,8 @@ Router.map(function() {
   this.route('crearEvento');
   this.route('perfilAdmin');
   this.route('inicio', {path: '/:salon_id'});
+  this.route('detalles-evento', {path: 'detalles-evento/:id'});
+  this.route('detallesSalon');
 });
 
 export default Router;
