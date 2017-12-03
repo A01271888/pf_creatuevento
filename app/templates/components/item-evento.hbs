@@ -1,18 +1,52 @@
-<div class="item">
-  <div class="image">
-    <img src="https://firebasestorage.googleapis.com/v0/b/crea-tu-evento.appspot.com/o/default%2Fdefault-placeholder.png?alt=media&token=b7b68d7f-4cd1-44fd-95ea-700cd5f1adbf">
-  </div>
-  <div class="content">
-    <a class="header">Nombre: {{evento.nombre}}</a>
-    <div class="meta">
-      <span class="cinema">tipo del evento</span>
+<div class="ui divided items">
+  <div class="item">
+    <div class="image">
+      <!-- <i class="birthdayicon"></i> -->
+      <img src="https://firebasestorage.googleapis.com/v0/b/crea-tu-evento.appspot.com/o/default%2Fdefault-placeholder.png?alt=media&token=b7b68d7f-4cd1-44fd-95ea-700cd5f1adbf">
     </div>
-    <div class="description">
-      <p>adfhuytrefrgh h fghfgh ter ter ter tert er t</p>
-    </div>
-    <div class="extra">
-      <div class="ui label">IMAX</div>
-      <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
+    <div class="content">
+      <a class="header">{{evento.nombre}}</a>
+      <div class="meta">
+        <span class="cinema">Creado por: {{evento.usuario}}</span>
+      </div>
+      <div class="description">
+        <p> <i class="calendar icon"></i> {{evento.fecha}}</p>
+        <p> <i class="wait icon"></i> {{evento.horaInicio}}</p>
+        <p> <i class="home icon"></i> {{evento.salon}}</p>
+      </div>
+      <div class="extra">
+        <div class="ui label">{{evento.tipoEvento}}</div>
+        <div class="ui label"><i class="info circle icon"></i>{{evento.estado}}</div>
+      </div>
     </div>
   </div>
 </div>
+
+<div class="divider">
+</div>
+<br>
+
+<!-- <div class="row">
+  <div class="col s12 m6">
+    <div class="card small">
+      <div class="card-image">
+        <img height="180" width="42" src="https://firebasestorage.googleapis.com/v0/b/crea-tu-evento.appspot.com/o/default%2Fdefault-placeholder.png?alt=media&token=b7b68d7f-4cd1-44fd-95ea-700cd5f1adbf">
+        <span class="card-title">{{evento.nombre}}</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content" style="text-align: center;">
+        <div class="meta">
+          <span class="cinema">{{evento.salon}}</span>
+        </div>
+        <div class="description">
+          <p>Fecha: {{evento.fecha}}</p>
+          <p>Hora de Inicio: {{evento.horaInicio}}</p>
+        </div>
+        <div class="extra">
+          <div class="ui label">{{evento.tipoEvento}}</div>
+          <div class="ui label"><i class="info circle icon"></i>{{evento.estado}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

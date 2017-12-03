@@ -5,18 +5,25 @@ export default Ember.Component.extend({
   session: Ember.inject.service(),
   Paso1: true,
   Paso2: false,
+  Paso3: false,
   actions: {
     registraEvento(){
       let registroEvento = this.get('registroEvento');
 
-      // let id = this.get('session.uid');
-      // this.set('registroEvento.nombre', id);
-      // console.log(id);
+      let id = this.get('session.uid');
+
+      this.get('store').find('usuario', id).then((user)=>{
+        //console.log(user.id);
+        registroEvento.set('usuario', user.id);
+        registroEvento.save();
+        user.get('registroEventos').pushObject(registroEvento);
+        user.save();
+      });
+
       let dE = this.get('store').createRecord('detalleEvento', {
         registroEvento: this.get('registroEvento')
       });
       dE.save();
-      console.log(dE.id);
 
       registroEvento.save().then(()=>{
         window.swal({
@@ -42,22 +49,16 @@ export default Ember.Component.extend({
             this.set('Paso1', false);
             //this.set('titularEvento', detalles.id)
           });
-        }).catch(()=>{
-          console.log("No se que pasó):");
-        });
+        })
       });
     },
-    selectTipo(value ){
+    selectTipo(value){
       let registroEvento = this.get('registroEvento');
       this.set('registroEvento.tipoEvento', value);
     },
-    guardaDetalles(){
-      let registroEvento = this.get('registroEvento');
-      registroEvento.save().then(()=>{
-        Ember.RSVP.all(  registroEvento.get('detalleEvento').save()  ).then(()=>{
-          alert('Ya se guardo');
-        });
-      });
+    listoPaso2(){
+      this.set('Paso2', false);
+      this.set('Paso3', true);
     }
   }
 });

@@ -12,6 +12,6 @@ export default DS.Model.extend({
   // quienGenero: DS.attr('string'),  //hacer un match
 
   usuario: DS.belongsTo('usuario'),
-  detalleEvento: DS.belongsTo('detalle-evento'),
+  detalleEvento: DS.belongsTo('detalleEvento'),
   salon: DS.belongsTo('salon')
 });

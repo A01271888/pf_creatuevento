@@ -1,4 +1,4 @@
-{{#if true}}
+{{#if Paso1}}
 <div class="container">
   <div class="row">
     <div class="col s12">
@@ -23,13 +23,13 @@
     <div class="input-field col s12">
       <select onchange={{action 'selectTipo' value="target.value"}}>
         <option value="" disabled selected>Selecciona el tipo de evento</option>
-        <option value="1">Cumpleaños</option>
-        <option value="2">Fiesta Infantil</option>
-        <option value="3">Reunión Familiar</option>
-        <option value="4">Boda</option>
-        <option value="5">Bautizo</option>
-        <option value="6">Primera Comunión / Confirmación</option>
-        <option value="7">Aniversario</option>
+        <option value="Cumpleaños">Cumpleaños</option>
+        <option value="Fiesta Infantil">Fiesta Infantil</option>
+        <option value="Reunión Familiar">Reunión Familiar</option>
+        <option value="Boda">Boda</option>
+        <option value="Bautizo">Bautizo</option>
+        <option value="Primera Comunión / Confirmación">Primera Comunión / Confirmación</option>
+        <option value="Aniversario">Aniversario</option>
       </select>
       <label>Tipo de evento</label>
     </div>
@@ -54,16 +54,7 @@
     <p class="green-text" style="text-align: center;">Ingresa los detalles de tu evento</p>
   </div>
   <div class="row">
-    {{#each registroEvento as |rE|}}
-    <p>{{detalles.id}}</p>
-      {{form-detalles-evento detalleEvento=rE.registroEvento}}
-    {{/each}}
-  </div>
-  <div class="row">
-    <button class="ui right labeled icon button" {{action 'guardaDetalles'}}>
-      <i class="right arrow icon"></i>
-      Siguente Paso
-    </button>
+    {{form-detalles-evento detalleEvento=registroEvento.detalleEvento Paso2=(action 'listoPaso2')}}
   </div>
 </div>
 {{/if}}
