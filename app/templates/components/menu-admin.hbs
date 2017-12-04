@@ -1,0 +1,17 @@
+<div class="ui secondary pointing menu">
+  {{#link-to 'perfilAdmin'}}
+    <a class="{{estadoI}} item">
+      Inicio
+    </a>
+  {{/link-to}}
+  {{#link-to 'todos-eventos'}}
+    <a class="{{estadoE}} item">
+      Todos los Eventos
+    </a>
+  {{/link-to}}
+  <div class="right menu">
+    <a class="ui item" {{action 'clickCerrarSesion'}}>
+      Cerrar Sesión
+    </a>
+  </div>
+</div>

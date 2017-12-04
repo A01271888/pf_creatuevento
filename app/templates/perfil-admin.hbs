@@ -1,1 +1,56 @@
-{{outlet}}
+{{menu-admin estadoI="active" estadoE="" doCerrarSesion=(action 'cerrarSesion')}}
+
+<div class="ui segment">
+    <div class="row">
+      <div class="col s6">
+        <h1> Bienvenid@ a tu perfil</h1>
+      </div>
+      {{#if NoEditable}}
+        <div class="col s6">
+          <a class="btn-floating btn-large waves-effect waves-light green" {{action 'editable'}}><i class="material-icons">create</i></a>
+        </div>
+      {{/if}}
+    </div>
+    <div class="row">
+
+      <div class="col s3">
+        {{#if NoEditable}}   <!--initialImg=model.picUrl didChange=(action 'changePicUrl')}}-->
+          {{profile-pic Img=model.picProfile }}
+        {{else}}
+          {{profile-pic-picker initialImg=model.picProfile didChange=(action 'changePicUrl') }}
+        {{/if}}
+      </div>
+
+      <div class="col s9">
+        <h2>Datos</h2>
+        <div class="row">
+          <div class="col s6">
+            <label for="nombre">Nombre(s)</label>
+            {{input id="nombre" disabled=NoEditable value=model.nombre}}
+          </div>
+          <div class="col s6">
+            <label for="apell">Apellidos</label>
+            {{input id="apell" disabled=NoEditable value=model.apellidos}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <!-- <i class="material-icons prefix">phone</i> -->
+            <label for="tel">Teléfono</label>
+            {{input id="tel" disabled=NoEditable value=model.telefono}}
+          </div>
+          <div class="col s6">
+            <label for="mail">Correo Electrónico</label>
+            {{input id="mail" disabled=NoEditable value=model.mail}}
+          </div>
+        </div>
+        {{#if NoEditable}}
+        {{else}}
+        <div class="row" style="text-align: center;">
+          <a class="waves-effect waves-light btn-large" {{action 'save'}}>Guardar cambios</a>
+        </div>
+        {{/if}}
+      </div>
+
+    </div>
+</div>

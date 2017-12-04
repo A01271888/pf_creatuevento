@@ -10,6 +10,7 @@ export default DS.Model.extend({
     //extras: DS.attr('array'), //Posible modelo
     especificaciones: DS.attr('string'),
 
+    metodoPago: DS.attr('string'),
     costo: DS.attr('number'), //computed
 
     registroEvento: DS.belongsTo('registro-evento')

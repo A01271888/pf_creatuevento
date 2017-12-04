@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  store: Ember.inject.service('store'),
   session: Ember.inject.service(),
   showError(message){
     this.set('errorMsg', message);
@@ -25,7 +26,17 @@ export default Ember.Controller.extend({
               //console.log(email);
               this.set('email', "");
               this.set('password', "");
-              return this.transitionToRoute('perfil');
+              let isAdmin = false;
+              this.get('store').find('usuario', this.get('session.uid')).then((u)=>{
+                this.set('isAdmin', u.data.isAdmin);
+                debugger
+                if(this.get('isAdmin')){
+                  return this.transitionToRoute('perfilAdmin');
+                }else{
+                  return this.transitionToRoute('perfil');
+                }
+              }).catch(()=>{console.log("kha");});
+
             }).catch((error)=>{
               this.showError(error.message);
               this.set('email', "");

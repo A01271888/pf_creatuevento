@@ -31,25 +31,30 @@ export default Ember.Component.extend({
           text: "Solo verifica que tus datos son correctos.",
           type: 'warning',
           showCancelButton: true,
-          cancelButtonText: 'Regresa a confirmar',
+          // cancelButtonText: 'Regresa a confirmar',
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Son correctos!'
-        }).then(() => {
-          window.swal({
-              title: 'Genial',
-              text: 'Sigamos con el Paso 2',
-              confirmButtonText: 'Ok',
-              type: 'success'
-          }).then(()=>{
-            // this.get('registroEvento').this.get('detalleEvento').createRecord();
+        }).then((result) => {
+          // if(result.value){
+            window.swal({
+                title: 'Genial',
+                text: 'Sigamos con el Paso 2',
+                confirmButtonText: 'Ok',
+                type: 'success'
+            }).then(()=>{
+              // this.get('registroEvento').this.get('detalleEvento').createRecord();
 
-            this.sendAction('Paso1');
-            this.set('Paso2', true);
-            this.set('Paso1', false);
-            //this.set('titularEvento', detalles.id)
-          });
-        })
+              this.sendAction('Paso1');
+              this.set('Paso2', true);
+              this.set('Paso1', false);
+              //this.set('titularEvento', detalles.id)
+            });
+          // }
+          // else{
+          //   console.log(result.value);
+          // }
+        });
       });
     },
     selectTipo(value){
@@ -59,6 +64,6 @@ export default Ember.Component.extend({
     listoPaso2(){
       this.set('Paso2', false);
       this.set('Paso3', true);
-    }
+    },
   }
 });

@@ -1,27 +1,59 @@
-<div class="container">
   <div class="row">
-    <div class="col s4">
-      <label for="c">Total Personas</label>
-      {{input id="c" type="text" value=registroEvento.nombre}}
+    <div class="col s4" style="text-align: center;">
+      <h4>Cotización</h4>
+      <h4> <i class="dollar icon"></i> {{cotizacion}} </h4>
     </div>
-  </div>
-  <div class="row">
-    <div class="col s6">
-      <label for="r">Fecha</label>
-      <!-- <input id="fecha" type="text" class="datepicker"> -->
-      {{input id="r" type="date" value=registroEvento.fecha}}
-    </div>
-    <div class="col s6">
-      <label for="x">Hora de Inicio</label>
-      <!-- <input id="hr" type="text" class="timepicker"> -->
-      {{input id="x" type="time" value=registroEvento.horaInicio}}
+    <div class="col s8">
+      <div class="row">
+        <center><h4>Método de pago</h4></center>
+      </div>
+      <div class="row"><center>
+        <form class="col12">
+          <div class="inline fields">
+            <label for="fruit">Selecciona el método de pago:</label>
+            <div class="field" >
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="mPago" checked="" tabindex="0" class="hidden">
+                  <h6><i class="credit card alternative icon"></i> Tarjeta de Crédito</h6>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="mPago" tabindex="1" class="hidden">
+                  <h6><i class="money icon"></i> Pago efectivo</h6>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="mPago" tabindex="2" class="hidden">
+                  <h6><i class="credit card alternative icon"></i> Deposito en banco</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form></center>
+      </div>
     </div>
   </div>
 
   <div class="row">
-    <button class="ui right labeled icon button" {{action 'registraEvento' }}>
-      <i class="right arrow icon"></i>
-      Siguente Paso
+    {{#link-to 'lista-eventos'}}
+    <button class="ui left labeled icon button">
+      <i class="arrow left icon"></i>
+      Regresa
     </button>
+    {{/link-to}}
+    {{#link-to 'lista-eventos'}}
+    <button class="ui right labeled icon button green" {{action 'confirmaEvento' detalleEvento.registroEvento}}>
+      <i class="checkmark icon"></i>
+      Listo
+    </button>
+    {{/link-to}}
   </div>
-</div>
+
+  <script type="text/javascript">
+      $('.ui.radio.checkbox')
+      .checkbox()
+      ;
+  </script>

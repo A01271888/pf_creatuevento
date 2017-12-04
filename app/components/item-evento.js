@@ -6,11 +6,22 @@ export default Ember.Component.extend({
   actions: {
 
   },
-  creador: Ember.computed(function(){
+
+  creador: Ember.computed('usuario', function(){
     this.get('store').find('usuario', this.get('session.uid')).then((user)=>{
-      console.log(user.data.nombre);
-      return user.data.nombre;
+      let nombre = user.data.nombre + " " + user.data.apellidos;
+      console.log(nombre);
+      return nombre;
     });
-      // return this.get('evento.nombre');
-  }),
+
+  })
+  // creador: Ember.computed('model.usuario', function(){
+  //   this.get('store').query('usuario', {
+  //           orderBy: 'nombre',
+  //           equalTo: this.get('model.usuario')
+  //         }).then((user)=>{
+  //           console.log(user);
+  //         })
+  // })
+
 });

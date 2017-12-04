@@ -6,14 +6,20 @@ export default Ember.Route.extend(AuthRoute, {
   model(){
     // El modelo de la ruta es el usuario
     let id = this.get('session.uid');
-    let model = this.store.find('usuario', id);
-      // console.log(model.nombre);
-      if(model.isAdmin){
-        return model;
-        //this.transitionTo('perfilAdmin');
-      }else{
-        return model;
-      }
+    return this.store.find('usuario', id);
+    // t.then((model)=>{
+    //   console.log(model.data.nombre);
+    //   if(model.data.isAdmin){
+    //     // return model;
+    //     transition.abort();
+    //     this.transitionTo('perfilAdmin');
+    //   }else{
+    //     console.log('Entre al perfinl de ', model.data.nombre," ", model.data.isAdmin);
+    //     this.set('user',model);
+    //     console.log(model.id);
+    //     return model;
+    //   }
+    // });
 
   },
   beforeModel(){

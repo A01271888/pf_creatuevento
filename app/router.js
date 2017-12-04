@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('inicio', {path: '/:salon_id'});
   this.route('detalles-evento', {path: 'detalles-evento/:id'});
   this.route('detallesSalon');
+  this.route('todos-eventos');
 });
 
 export default Router;
